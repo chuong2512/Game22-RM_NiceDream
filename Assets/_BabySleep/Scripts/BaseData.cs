@@ -18,13 +18,15 @@ public class BaseData : MonoBehaviour {
 
         CheckAppendData();
     }
-
-    public virtual void ResetData() { }
+    
     protected virtual void CheckAppendData() { }
-
+    
     protected void Save() {
         string json = JsonUtility.ToJson(this);
         // Debug.Log("json_______" + json);
         PlayerPrefs.SetString(prefString, json);
     }
+    public virtual void ResetData() { }
+
+
 }

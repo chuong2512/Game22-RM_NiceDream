@@ -12,7 +12,6 @@ public class PlayerData : BaseData
     public int intDiamond;
     public int currentSong;
     public bool[] listSongs;
-    public bool isUnlock;
 
     public override void Init()
     {
@@ -31,7 +30,6 @@ public class PlayerData : BaseData
         intDiamond = 0;
         currentSong = 0;
         listSongs = new bool[Constant.countSong];
-        isUnlock = false;
 
         for (int i = 0; i < 8; i++)
         {
@@ -83,12 +81,6 @@ public class PlayerData : BaseData
     public void ChooseSong(int i)
     {
         currentSong = i;
-        Save();
-    }
-
-    public void UnlockPack()
-    {
-        isUnlock = true;
         Save();
     }
 }

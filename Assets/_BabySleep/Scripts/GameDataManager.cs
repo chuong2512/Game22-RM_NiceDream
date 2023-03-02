@@ -1,4 +1,5 @@
 using Jackal;
+using MyNamespace;
 using UnityEngine;
 
 [DefaultExecutionOrder(-100)]

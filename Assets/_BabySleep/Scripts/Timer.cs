@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using MyNamespace;
+using TMPro;
 using UnityEngine;
 
 public class Timer : MonoBehaviour

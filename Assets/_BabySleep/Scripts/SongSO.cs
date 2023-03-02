@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-[CreateAssetMenu(fileName = "Songs ", menuName = "Data/Scriptable Object/Song Infor SO")]
-public class SongSO : ScriptableObject
+﻿namespace MyNamespace
 {
-    public List<SongInfor> songInfors;
+    using System;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-    public SongInfor GetSongWithID(int id)
+    [CreateAssetMenu(fileName = "Songs ", menuName = "Data/Scriptable Object/Song Infor SO")]
+    public class SongSO : ScriptableObject
     {
-        return songInfors[id];
-    }
-}
+        public List<SongInfor> songInfors;
 
-[Serializable]
-public class SongInfor
-{
-    public AudioClip song;
-    public Sprite icon;
+        public SongInfor GetSongWithID(int id)
+        {
+            return songInfors[id];
+        }
+    }
+
+    [Serializable]
+    public class SongInfor
+    {
+        public AudioClip song;
+        public Sprite icon;
+    }
 }

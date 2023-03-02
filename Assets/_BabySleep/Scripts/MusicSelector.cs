@@ -1,3 +1,4 @@
+using MyNamespace;
 using TMPro;
 using UnityEngine;
 

@@ -1,32 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using Jackal;
-using UnityEngine;
-
-public class UIManager : Singleton<UIManager>
+namespace MyNamespace
 {
-    public GameObject panelStart, panelSetting, panelApp;
+    using Jackal;
+    using UnityEngine;
 
-    void Start()
+    public class UIManager : Singleton<UIManager>
     {
-        OpenApp();
-    }
+        public GameObject panelStart, panelApp;
 
-    public void BuyPack()
-    {
-        IAPManager.OnPurchaseSuccess =
-            () =>
-            {
-                GameDataManager.Instance.playerData.UnlockPack();
-                OpenApp();
-            };
+        void Start()
+        {
+            OpenApp();
+        }
 
-        IAPManager.Instance.BuyProductID(IAPKey.PACK_UNLOCK);
-    }
-
-    public void OpenApp()
-    {
-        panelStart.SetActive(false);
-        panelApp.SetActive(true);
+        public void OpenApp()
+        {
+            panelStart.SetActive(false);
+            panelApp.SetActive(true);
+        }
     }
 }
