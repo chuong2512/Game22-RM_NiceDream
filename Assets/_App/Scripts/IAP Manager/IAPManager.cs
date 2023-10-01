@@ -27,7 +27,6 @@ public class IAPManager : PersistentSingleton<IAPManager>, IStoreListener
         InitIAP();
     }
 
-    
 
     private void InitProduct()
     {
@@ -45,6 +44,7 @@ public class IAPManager : PersistentSingleton<IAPManager>, IStoreListener
         builder.AddProduct(IAPKey.PACK4, ProductType.Consumable);
         UnityPurchasing.Initialize(this, builder);
     }
+
     private void InitIAP()
     {
         if (storeController == null)
@@ -52,6 +52,7 @@ public class IAPManager : PersistentSingleton<IAPManager>, IStoreListener
             InitProduct();
         }
     }
+
     public void BuyProductID(string productId)
     {
         _isBuyFromShop = true;
@@ -83,6 +84,7 @@ public class IAPManager : PersistentSingleton<IAPManager>, IStoreListener
             }
 #endif
     }
+
     public void RestorePurchases(System.Action<bool> OnRestored)
     {
         // If Purchasing has not yet been set up ...
@@ -113,6 +115,7 @@ public class IAPManager : PersistentSingleton<IAPManager>, IStoreListener
             OnRestored?.Invoke(false);
         }
     }
+
     private bool IsInitialized()
     {
         // Only say we are initialized if both the Purchasing references are set.
@@ -130,11 +133,14 @@ public class IAPManager : PersistentSingleton<IAPManager>, IStoreListener
         extensionProvider = extensions;
     }
 
-   
 
     public void OnInitializeFailed(InitializationFailureReason error)
     {
         Debug.Log("OnInitializeFailed InitializationFailureReason:" + error);
+    }
+
+    public void OnInitializeFailed(InitializationFailureReason error, string message)
+    {
     }
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
