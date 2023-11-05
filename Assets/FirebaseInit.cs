@@ -25,5 +25,7 @@ public class FirebaseInit : MonoBehaviour
                 // Firebase Unity SDK is not safe to use here.
             }
         });
+
+        Firebase.Analytics.FirebaseAnalytics.LogEvent("Enter Game", $"LoginGame", 1);
     }
 }
