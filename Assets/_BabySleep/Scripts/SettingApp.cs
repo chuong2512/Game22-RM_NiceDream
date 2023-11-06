@@ -12,4 +12,9 @@ public class SettingApp : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void RateUs()
+    {
+        Application.OpenURL(string.Format("market://details?id=" + Application.identifier));
+    }
 }

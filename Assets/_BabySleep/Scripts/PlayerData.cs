@@ -31,7 +31,7 @@ public class PlayerData : BaseData
         currentSong = 0;
         listSongs = new bool[Constant.countSong];
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 14; i++)
         {
             listSongs[i] = true;
         }

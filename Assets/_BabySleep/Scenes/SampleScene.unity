@@ -891,6 +891,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1305471005210931475, guid: 75a9095164261c34bab983cf710c4dab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RateUs
+      objectReference: {fileID: 0}
     - target: {fileID: 1305471005336922588, guid: 75a9095164261c34bab983cf710c4dab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
