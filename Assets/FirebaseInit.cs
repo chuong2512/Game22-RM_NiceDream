@@ -1,11 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Jackal;
 using UnityEngine;
 
-public class FirebaseInit : MonoBehaviour
+public class FirebaseInit : Singleton<FirebaseInit>
 {
     // Start is called before the first frame update
     void Start()
+    {
+       LogFirebase(() =>
+       {
+           Firebase.Analytics.FirebaseAnalytics.LogEvent("Enter Game", $"LoginGame", 1);
+       });
+    }
+
+    public void LogFirebase(Action action)
     {
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
@@ -17,6 +27,7 @@ public class FirebaseInit : MonoBehaviour
                 var app = Firebase.FirebaseApp.DefaultInstance;
 
                 // Set a flag here to indicate whether Firebase is ready to use by your app.
+                action.Invoke();
             }
             else
             {
@@ -25,7 +36,5 @@ public class FirebaseInit : MonoBehaviour
                 // Firebase Unity SDK is not safe to use here.
             }
         });
-
-        Firebase.Analytics.FirebaseAnalytics.LogEvent("Enter Game", $"LoginGame", 1);
     }
 }

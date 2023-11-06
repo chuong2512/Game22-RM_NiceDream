@@ -42,7 +42,11 @@ public class MusicSelector : MonoBehaviour
 
     public void ChooseMusic(int index)
     {
-        Firebase.Analytics.FirebaseAnalytics.LogEvent("ChooseMusic", $"Song", index);
+        FirebaseInit.Instance.LogFirebase(() =>
+        {
+            Firebase.Analytics.FirebaseAnalytics.LogEvent("ChooseMusic", $"Song", index);
+        });
+
 
         if (currentMusic == index)
         {
@@ -93,7 +97,10 @@ public class MusicSelector : MonoBehaviour
             diamonds.text = playerData.intDiamond.ToString();
         };
 
-        Firebase.Analytics.FirebaseAnalytics.LogEvent("Buy InApp", $"pack", value);
+        FirebaseInit.Instance.LogFirebase(() =>
+        {
+            Firebase.Analytics.FirebaseAnalytics.LogEvent("Buy InApp", $"pack", value);
+        });
 
         switch (value)
         {
