@@ -95,12 +95,12 @@ public class MusicSelector : MonoBehaviour
             //todo add PlayerData
             playerData.AddDiamond(value);
             diamonds.text = playerData.intDiamond.ToString();
+            
+            FirebaseInit.Instance.LogFirebase(() =>
+            {
+                Firebase.Analytics.FirebaseAnalytics.LogEvent("Buy InApp", $"pack", value);
+            });
         };
-
-        FirebaseInit.Instance.LogFirebase(() =>
-        {
-            Firebase.Analytics.FirebaseAnalytics.LogEvent("Buy InApp", $"pack", value);
-        });
 
         switch (value)
         {
